@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JTHING</title>
+
+<link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+
+<content>
+ <form action="">
+	<table id="join_form">
+		<tr>
+			<th>*아이디</th>
+			<th>
+				<input type="text" id="email" name="email" placeholder="example@naver.com" />
+			</th>
+			<th>
+				<a href="javascript:fn_dupl()">중복확인</a>
+			</th>
+		</tr>
+		<tr>
+			<th>*비밀번호</th>
+			<th><input type="password" id="password" name="password" placeholder="******" /></th>
+			<th></th>
+		</tr>
+		<tr>
+			<th>연령대</th>
+			<th>
+			 <select name="age" style="width:150px;">
+			    <option value="10">10대</option>
+			    <option value="20">20대</option>
+			    <option value="30">30대</option>
+			    <option value="40">40대</option>
+			    <option value="50">50대</option>
+			    <option value="60">60대 이상</option>
+			 </select>
+			
+			</th>
+			<th></th>
+		</tr>
+		<tr>
+			<th>직종</th>
+			<th>
+			 <select name="age" style="width:150px;">
+			    <option value="10">건설·채굴</option>
+			    <option value="20">경영·사무</option>
+			    <option value="30">교육·복지</option>
+			    <option value="40">IT·기술</option>
+			    <option value="50">미용·레저</option>
+			    <option value="60">보건·의료</option>
+			 </select>
+			
+			</th>
+			<th></th>
+		</tr>
+		<tr>
+			<th>성별</th>
+			<th>
+			 <input type="radio" id="sex" name="sex" /> 남
+			 <input type="radio" id="sex" name="sex" /> 여
+			 <input type="radio" id="sex" name="sex" /> 비공개
+			</th>
+			<th></th>
+		</tr>
+		<tr>
+			<th>관심사</th>
+			<th><input type="text" id="hobby" readonly="readonly" placeholder="관심사를 선택해주세요."/></th>
+			<th></th>
+		</tr>
+		<tr>
+			<th></th>
+			<th>대충 태그 여러개 들어갈곳 </th>
+			<th></th>
+		</tr>
+	 
+		<tr>
+			<th colspan="3">
+				<input type="button" value="가입하기" onclick="fn_join()" />
+			
+			</th>
+		</tr>	
+	</table>
+ </form>
+</content> 
+
+</body>
+</html>

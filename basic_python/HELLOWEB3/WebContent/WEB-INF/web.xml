@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>HELLOWEB3</display-name>
+  <welcome-file-list>
+    <welcome-file>main.html</welcome-file>
+  </welcome-file-list>
+  
+  <session-config>
+  	<session-timeout>2</session-timeout> 
+  </session-config>
+   
+  <servlet>
+    <description></description>
+    <display-name>ConSample</display-name>
+    <servlet-name>ConSample</servlet-name>
+    <servlet-class>kr.aimaker.web.ConSample</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConSample</servlet-name>
+    <url-pattern>/consample</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SampleAjaxInsert</display-name>
+    <servlet-name>SampleAjaxInsert</servlet-name>
+    <servlet-class>kr.aimaker.web.SampleAjaxInsert</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SampleAjaxInsert</servlet-name>
+    <url-pattern>/sampleinsert.ajax</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SampleAjaxUpdate</display-name>
+    <servlet-name>SampleAjaxUpdate</servlet-name>
+    <servlet-class>kr.aimaker.web.SampleAjaxUpdate</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SampleAjaxUpdate</servlet-name>
+    <url-pattern>/sampleupdate.ajax</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SampleAjaxDelete</display-name>
+    <servlet-name>SampleAjaxDelete</servlet-name>
+    <servlet-class>kr.aimaker.web.SampleAjaxDelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SampleAjaxDelete</servlet-name>
+    <url-pattern>/sampledelete.ajax</url-pattern>
+  </servlet-mapping>
+  
+  
+    <servlet>
+    <description></description>
+    <display-name>ConLogin</display-name>
+    <servlet-name>ConLogin</servlet-name>
+    <servlet-class>kr.aimaker.web.ConLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConLogin</servlet-name>
+    <url-pattern>/login.ajax</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
+    <display-name>ConLogout</display-name>
+    <servlet-name>ConLogout</servlet-name>
+    <servlet-class>kr.aimaker.web.ConLogout</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ConLogout</servlet-name>
+    <url-pattern>/logout</url-pattern>
+  </servlet-mapping>
+  
+</web-app>
+
+
+
+
+
+

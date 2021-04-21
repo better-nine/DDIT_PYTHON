@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JTHING</title>
+ 
+<link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+
+ <content>
+  <div>
+	<form action="">
+	 <table id="login_form">
+	  <tr>
+	   <td>
+		  <input type="text" name="emp_id" id="user_id" placeholder="example@naver.com" /><br />
+	   </td>
+	  </tr>
+	  
+	  <tr>
+	   <td>
+		  <input type="password" name="pwd" id="pwd" placeholder="******" /><br />
+	   </td>
+	  </tr>
+	  
+	  <tr>
+	   <td>
+		  <input type="button" onclick="location.href='NewFile.html'" value="login" /><br />
+	   </td>
+	  </tr>
+	  <tr>
+	   <td>
+		  <a href="join.html">회원가입</a>
+	   </td>
+	  </tr>
+	  
+	 </table>
+	</form>
+  </div>
+ </content>
+
+</body>
+</html>

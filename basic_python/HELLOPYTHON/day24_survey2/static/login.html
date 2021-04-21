@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>login</title>
+
+<script src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	
+
+	function fn_login(){
+		var user_id = $("#user_id").val();
+		var pwd = $("#pwd").val();
+		
+		var param = "";
+		param += "dummy=" + Math.random();
+		param += "&user_id="+user_id;
+		param += "&pwd="+pwd;
+		
+		alert(param)
+		
+		$.ajax({
+			url : "login_ajax",
+			data : param,
+			dataType : "json",
+			type : "post",
+			async: false,
+			success : function(data) {
+				if(data.msg == "ok"){
+					location.href="main";
+				} else {
+					alert("아이디 혹은 비밀번호가 맞지 않습니다.");
+					location.reload();
+				}
+			}
+		});
+		
+		
+		
+		
+	}
+
+
+
+</script>
+</head>
+<body> 
+
+
+
+ <form action="">
+	회원 아이디  : <input type="text" name="emp_id" id="user_id" /><br />
+	회원 비밀번호 : <input type="password" name="pwd" id="pwd" /><br />
+	<input type="button" onclick="fn_login()" value="login" />
+
+
+
+ </form>
+
+</br>
+copyright 
+</body>
+</html>
+

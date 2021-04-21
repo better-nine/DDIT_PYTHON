@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+<meta charset="UTF-8">
+{% block content %}
+
+
+ <table id="mymemo" border="1">
+  <tr>
+	<th class="memo_title">제목</th>
+	<td>Untitled_1</td>
+  </tr>
+  <tr>
+	<th>작성일시</th>
+	<td> 2020.02.02 </td>
+  </tr>
+  <tr>
+	<th>내용</th>
+	<td><pre>
+	내용이들어갈거임	내용	내
+	내
+	내
+	용
+	메
+	모
+	</pre></td>
+  </tr>
+  <tr>
+	<th colspan="2">
+	 <input type="button" value="수정" onclick="location.href='memo_mod.html'">
+	 <input type="button" value="삭제">
+	
+	</th> 
+  </tr>
+ </table>
+ 
+{% endblock %} 

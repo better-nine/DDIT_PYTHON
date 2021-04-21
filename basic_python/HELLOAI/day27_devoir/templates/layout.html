@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>layout</title>
+
+<link rel="stylesheet" href="/js/jquery-ui.css"> 
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+
+function fn_logout(){
+	var flag_ok = confirm("정말 로그아웃 하시겠습니까?"); 
+	if(flag_ok){
+		location.href="logout";
+	}
+	console.log(flag_ok)
+// 		location.reload();
+}
+
+</script>
+</head>
+<body>
+<a href="main">초기화면</a> 
+<a href="suser">사용자관리</a> 
+<a href="survey">설문관리</a> 
+<a href="detail">문항관리</a> 
+<a href="starget">설문대상</a> 
+<a href="sresult">응답관리</a>  
+<a href="sview">고객응답테스트</a> 
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+{% if session.user_id %}
+&nbsp;
+{{ session.user_name }} 님 환영합니다.
+<a href="javascript:fn_logout()">로그아웃</a>
+{% else %}
+<a href="login.html">로그인</a>
+
+{% endif %}
+
+<br />
+
+
+{% block content %}{% endblock %}
+
+</br>
+copyright 
+</body>
+</html>
+
+

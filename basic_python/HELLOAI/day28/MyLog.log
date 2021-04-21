@@ -1,0 +1,1232 @@
+2021-03-11 13:37:48,782 - simple_example - DEBUG - 
+select user_id,
+       pwd,
+       user_name,
+       birth,
+       mobile,
+       email,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM suser
+where user_id =:1
+  and pwd =:2
+order by user_id desc
+2021-03-11 13:37:50,013 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 13:38:06,904 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 13:38:38,345 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 13:38:39,277 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 13:38:39,926 - simple_example - DEBUG - 
+select survey_id,
+       st_mobile,
+       complete_yn,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM starget
+where survey_id=:1
+2021-03-11 13:38:40,581 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 13:38:41,301 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       st_mobile,
+       answer,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM sresult
+2021-03-11 13:38:42,373 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 13:40:26,968 - simple_example - DEBUG - 
+select user_id,
+       pwd,
+       user_name,
+       birth,
+       mobile,
+       email,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM suser
+where user_id =:1
+  and pwd =:2
+order by user_id desc
+2021-03-11 13:40:28,230 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 13:40:30,221 - simple_example - DEBUG - 
+select user_id,
+       pwd,
+       user_name,
+       birth,
+       mobile,
+       email,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM suser
+order by user_id desc
+2021-03-11 13:40:31,421 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 13:40:34,239 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 13:40:36,382 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 13:40:51,920 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 13:40:52,904 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 13:43:38,669 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 13:44:00,852 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 13:45:26,553 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 13:45:50,313 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 13:45:55,249 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 13:46:06,107 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 13:46:11,978 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 13:46:51,707 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 13:48:21,472 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 13:49:59,699 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 13:52:20,634 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 13:52:35,027 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 13:52:36,824 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 13:57:30,666 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 14:00:37,953 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 14:03:23,421 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 14:04:13,515 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 14:04:45,677 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 14:07:29,534 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 14:08:02,561 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 14:08:38,816 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 14:58:45,607 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 14:59:52,907 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 15:00:14,795 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 15:00:15,780 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 15:00:19,303 - simple_example - DEBUG - 
+MERGE INTO sresult USING DUAL ON (survey_id = :1
+                                  and s_seq = :2
+                                  and st_mobile = :3) WHEN MATCHED THEN
+UPDATE
+SET answer = :4 WHEN NOT MATCHED THEN
+INSERT (survey_id,
+        s_seq,
+        st_mobile,
+        answer)
+VALUES (:1,:2,:3,:4);
+2021-03-11 15:00:57,705 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 15:01:00,495 - simple_example - DEBUG - 
+MERGE INTO sresult USING DUAL ON (survey_id = :1
+                                  and s_seq = :2
+                                  and st_mobile = :3) WHEN MATCHED THEN
+UPDATE
+SET answer = :4 WHEN NOT MATCHED THEN
+INSERT (survey_id,
+        s_seq,
+        st_mobile,
+        answer)
+VALUES (:1,:2,:3,:4)
+2021-03-11 15:01:00,524 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 15:34:18,523 - simple_example - DEBUG - 
+select user_id,
+       pwd,
+       user_name,
+       birth,
+       mobile,
+       email,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM suser
+where user_id =:1
+  and pwd =:2
+order by user_id desc
+2021-03-11 15:34:19,517 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 15:34:22,600 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 15:35:29,536 - simple_example - DEBUG - 
+select user_id,
+       pwd,
+       user_name,
+       birth,
+       mobile,
+       email,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM suser
+where user_id =:1
+  and pwd =:2
+order by user_id desc
+2021-03-11 15:35:30,782 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 15:35:32,755 - simple_example - DEBUG - 
+select user_id,
+       pwd,
+       user_name,
+       birth,
+       mobile,
+       email,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM suser
+order by user_id desc
+2021-03-11 15:35:34,187 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 15:35:46,475 - simple_example - DEBUG - 
+select survey_id,
+       st_mobile,
+       complete_yn,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM starget
+where survey_id=:1
+2021-03-11 15:35:48,906 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 15:35:49,724 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       st_mobile,
+       answer,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM sresult
+2021-03-11 15:35:50,885 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 15:38:05,344 - simple_example - DEBUG - 
+select user_id,
+       pwd,
+       user_name,
+       birth,
+       mobile,
+       email,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM suser
+where user_id =:1
+  and pwd =:2
+order by user_id desc
+2021-03-11 15:38:06,237 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 15:38:41,756 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 15:43:02,058 - simple_example - DEBUG - 
+delete survey
+where survey_id =:1
+2021-03-11 15:43:07,066 - simple_example - DEBUG - 
+delete survey
+where survey_id =:1
+2021-03-11 15:44:46,003 - simple_example - DEBUG - 
+select user_id,
+       pwd,
+       user_name,
+       birth,
+       mobile,
+       email,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM suser
+where user_id =:1
+  and pwd =:2
+order by user_id desc
+2021-03-11 15:44:46,876 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 15:44:54,898 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 15:44:56,355 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 15:45:06,978 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 15:46:30,195 - simple_example - DEBUG - 
+select user_id,
+       pwd,
+       user_name,
+       birth,
+       mobile,
+       email,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM suser
+where user_id =:1
+  and pwd =:2
+order by user_id desc
+2021-03-11 15:46:31,250 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 15:46:42,247 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 15:46:45,115 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 15:48:30,643 - simple_example - DEBUG - 
+select user_id,
+       pwd,
+       user_name,
+       birth,
+       mobile,
+       email,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM suser
+where user_id =:1
+  and pwd =:2
+order by user_id desc
+2021-03-11 15:48:31,338 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 15:48:32,579 - simple_example - DEBUG - 
+select survey_id,
+       st_mobile,
+       complete_yn,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM starget
+where survey_id=:1
+2021-03-11 15:49:31,598 - simple_example - DEBUG - 
+select survey_id,
+       st_mobile,
+       complete_yn,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM starget
+where survey_id=:1
+2021-03-11 16:09:19,847 - simple_example - DEBUG - 
+select survey_id,
+       st_mobile,
+       complete_yn,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM starget
+where survey_id=:1
+2021-03-11 16:10:35,119 - simple_example - DEBUG - 
+select survey_id,
+       st_mobile,
+       complete_yn,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM starget
+where survey_id=:1
+2021-03-11 16:11:03,970 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 16:12:20,601 - simple_example - DEBUG - 
+select user_id,
+       pwd,
+       user_name,
+       birth,
+       mobile,
+       email,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM suser
+where user_id =:1
+  and pwd =:2
+order by user_id desc
+2021-03-11 16:12:21,619 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 16:12:22,476 - simple_example - DEBUG - 
+select survey_id,
+       st_mobile,
+       complete_yn,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM starget
+where survey_id=:1
+2021-03-11 16:14:15,999 - simple_example - DEBUG - 
+select survey_id,
+       st_mobile,
+       complete_yn,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM starget
+where survey_id=:1
+2021-03-11 16:14:23,805 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id,
+
+  (select u.USER_NAME
+   from suser u
+   where d.in_user_id = u.USER_ID) as in_user_name
+FROM sdetail d
+where survey_id=:1
+2021-03-11 16:17:51,271 - simple_example - DEBUG - 
+select user_id,
+       pwd,
+       user_name,
+       birth,
+       mobile,
+       email,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM suser
+where user_id =:1
+  and pwd =:2
+order by user_id desc
+2021-03-11 16:17:52,163 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+where in_user_id=:1
+2021-03-11 16:17:53,024 - simple_example - DEBUG - 
+select survey_id,
+       st_mobile,
+       complete_yn,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM starget
+where survey_id=:1

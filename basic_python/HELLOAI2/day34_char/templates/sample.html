@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+<meta charset=UTF-8" />
+<meta name="robots" content="noindex,nofollow"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+<meta http-equiv="X-UA Compatible" control="IE=edge,chrome=1" />
+ 
+<script type="text/javascript" src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="js/jquery.jqplot.js"></script>
+<script type="text/javascript" src="js/plugins/jqplot.barRenderer.js"></script>
+<script type="text/javascript" src="js/plugins/jqplot.pointLabels.js"></script>
+<script type="text/javascript" src="js/plugins/jqplot.categoryAxisRenderer.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/jquery.jqplot.css"/>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    var cnt_1234; 
+    var ans_1234;
+     
+    {% for i, s in enumerate(list) %}
+	    cnt_1234 = [{{s.c1}}, {{s.c2}}, {{s.c3}}, {{s.c4}}]; 
+	    ans_1234 = ['{{s.a1}}', '{{s.a2}}', '{{s.a3}}', '{{s.a4}}'];
+	    $('.mychart').eq({{i}}).jqplot([cnt_1234], {
+	        title:'{{s.question}}',
+	        seriesDefaults:{
+	            renderer:$.jqplot.BarRenderer,
+	            rendererOptions: { barWidth: 25 },
+	            pointLabels: { show: true, formatString: '%d' }
+	        },
+	        axes:{
+	            xaxis:{
+	                renderer: $.jqplot.CategoryAxisRenderer,
+	                ticks: ans_1234
+	            }
+	        }
+	    });
+    {% endfor %}
+});
+
+</script>
+
+</head>
+<body>
+ 
+
+{% for s in list %}
+{{s.s_seq}}번 질문.{{s.question}}
+<div class="mychart" style="height:300px;width:600px; "></div>
+{% endfor %}
+
+ 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

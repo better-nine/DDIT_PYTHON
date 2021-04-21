@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+
+</style>
+<script src="jquery-3.5.1.js"></script>
+<script type="text/javascript">
+
+	function myclick(){
+		var emp_id = $('#emp_id').val();
+		var pwd = $('#pwd').val();
+		 
+		
+		var param = "";
+		param += "dummy=" + Math.random(); //브라우저가 캐시 저장할때 같은 사이트 주소값을 저장하지 않을 수 있게 랜덤값 넣어준거임 
+										   //ajax가 똑같은 주소의 브라우저를 받으면 기존에 캐시로 저장했던 페이지 먼저 출력함 (인터넷익스플로러 옵션에서 확인해 볼 수 있는 설정) 
+		param += "&emp_id="+emp_id;
+		param += "&pwd="+pwd;
+		 
+		
+		
+		$.ajax({
+			url : "login.ajax", //ajax로 불러올 때 ajaxutil 파일이 꼭 필요함. 그 친구가 위쪽 파일 타입을 바꿔줌 
+			data : param,
+			dataType : "json",
+			type : "post",
+			async: false,
+			statusCode : {
+				404 : function() {
+					alert("네트워크가 불안정합니다. 다시 시도부탁드립니다.");
+				}
+			},
+			success : function(data) {
+				fn_login_callback(data);
+			}
+		});
+	}	
+	function fn_login_callback(data){ //얘가 메시지 띄우게 도와주는 코드 
+		if(data == null){
+			return;
+		}
+		alert(data);
+		if(data=="ok"){
+			alert("정상적으로 로그인되었습니다.");
+			location.href="main.html"
+		} else {
+			alert("아이디와 비밀번호가 일치하지 않습니다.");			
+		}
+				
+	}
+
+
+
+</script>
+</head>
+<body>
+<form action="">
+
+	사번 : <input type="text" id="emp_id" /><br/>
+	암호 : <input type="password" id="pwd" /><br/>
+	<input type="button" onclick="myclick()" value="로그인" />
+
+
+</form>
+
+
+</body>
+</html>

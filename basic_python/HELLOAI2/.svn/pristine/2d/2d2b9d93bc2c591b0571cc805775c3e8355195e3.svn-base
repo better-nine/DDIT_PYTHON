@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+<meta charset="UTF-8">
+{% block content %}
+
+
+<content>
+ <form action="">
+	<table id="join_form">
+		<tr >
+			<th colspan="2">회원정보 수정</th>
+		</tr>
+		<tr>
+			<th>이메일</th>
+			<th>
+				<input type="text" id="email" name="email" placeholder="example@naver.com" disabled="disabled"/>
+			</th>
+		</tr>
+
+		<tr>
+			<th>*비밀번호</th>
+			<th><input type="password" id="password" name="password" placeholder="******" /></th>
+			<th></th>
+		</tr>
+		<tr>
+			<th>연령대</th>
+			<th>
+			 <select name="age" style="width:150px;">
+			    <option value="10">10대</option>
+			    <option value="20">20대</option>
+			    <option value="30">30대</option>
+			    <option value="40">40대</option>
+			    <option value="50">50대</option>
+			    <option value="60">60대 이상</option>
+			 </select>
+			
+			</th>
+			<th></th>
+		</tr>
+		<tr>
+			<th>직종</th>
+			<th>
+			 <select name="age" style="width:150px;">
+			    <option value="10">건설·채굴</option>
+			    <option value="20">경영·사무</option>
+			    <option value="30">교육·복지</option>
+			    <option value="40">IT·기술</option>
+			    <option value="50">미용·레저</option>
+			    <option value="60">보건·의료</option>
+			 </select>
+			
+			</th>
+			<th></th>
+		</tr>
+		<tr>
+			<th>성별</th>
+			<th>
+			 <input type="radio" id="sex" name="sex" /> 남
+			 <input type="radio" id="sex" name="sex" /> 여
+			 <input type="radio" id="sex" name="sex" /> 비공개
+			</th>
+			<th></th>
+		</tr>
+		<tr>
+			<th>관심사</th>
+			<th><input type="text" id="hobby" readonly="readonly" placeholder="관심사를 선택해주세요."/></th>
+			<th></th>
+		</tr>
+		<tr>
+			<th></th>
+			<th>
+				<a href="">#이직</a>
+				<a href="">#회사</a>
+				<a href="">#연봉</a>
+				<a href="">#월급</a>
+				<a href="">#IT</a>
+			 </th>
+			<th></th>
+		</tr>
+	 	<tr></tr>
+	 	<tr></tr>
+		<tr>
+			<th colspan="4">
+				<input type="button" value="수정완료"  />
+				<input type="button" value="취소"  />
+			</th>
+		</tr>	
+	</table>
+ </form>
+</content> 
+
+{% endblock %} 

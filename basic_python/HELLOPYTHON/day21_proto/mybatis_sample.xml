@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Test">
+      
+    <select id="select">
+       select col01, col02, col03 FROM sample
+    </select>
+    
+    <update id="insert">
+       insert into sample(col01, col02, col03) values(:1,:2,:3)
+    </update>
+
+    <update id="update">
+       update sample set col02=:1, col03=:2 where col01=:3
+    </update>
+
+    <update id="delete">
+      delete sample where col01 =:1
+    </update>
+    
+</mapper>

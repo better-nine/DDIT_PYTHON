@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+<meta charset="UTF-8">
+{% block content %}
+
+ <table id="mymemo" border="1">
+
+  <tr>
+	<th>순번</th>
+	<th>메모</th>
+	<th>날짜</th>
+	<th>삭제</th>
+  </tr>
+  <tr>
+	<td>1</td>
+	<td><a href="memo_detail.html">Untitled_1</a></td>
+	<td>2021.01.12</td>
+	<td>삭제</td>
+  </tr>
+  <tr>
+	<td>2</td>
+	<td>Untitled_2</td>
+	<td>2021.01.15</td>
+	<td>삭제</td>
+  </tr>
+  <tr>
+	<td>3</td>
+	<td>Untitled_3</td>
+	<td>2021.01.31</td>
+	<td>삭제</td>
+  </tr>
+ </table>
+ 
+#메모 제목은 처음 생성 시 자동설정 untitled_숫자
+시퀀스로 숫자 자동상승 
+ 
+{% endblock %} 

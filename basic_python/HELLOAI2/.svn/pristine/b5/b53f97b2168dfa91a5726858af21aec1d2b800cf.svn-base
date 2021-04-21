@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JTHING</title>
+<link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+<content>
+
+ 여기에 채팅 내용이 뜹니다.
+
+<img src="image/bot.png">
+
+
+
+</content>
+</body>
+</html>

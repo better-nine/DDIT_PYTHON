@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="sample">
+
+	<select id="selectList" parameterType="kr.aimaker.mybatis.SampleVO" resultType="kr.aimaker.mybatis.SampleVO">
+		SELECT col01, col02, col03 
+		FROM sample
+		where 
+			col01 = #{col01}
+	</select>
+	
+	
+	<insert id="insert" parameterType="kr.aimaker.mybatis.SampleVO">
+	 	INSERT INTO sample 
+	 	(col01, col02, col03) 
+	 	VALUES 
+	 	(#{col01},#{col02},#{col03})
+	</insert>
+	
+	<update id="update" parameterType="kr.aimaker.mybatis.SampleVO">
+		UPDATE sample 
+		SET 
+			col02 = #{col02}, 
+			col03 = #{col03} 
+		WHERE 
+			col01 = #{col01}
+	</update>
+	
+	<delete id="delete" parameterType="kr.aimaker.mybatis.SampleVO">
+	 	DELETE from sample 
+	 	WHERE 
+	 		col01 = #{col01}
+	</delete>
+</mapper>

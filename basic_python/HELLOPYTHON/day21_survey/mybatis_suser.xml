@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Test">
+      
+    <select id="suser_select">
+       select 
+	       user_id, 
+	       pwd, 
+	       user_name, 
+	       birth, 
+	       mobile, 
+	       email, 
+	       in_date, 
+	       in_user_id, 
+	       up_date, 
+	       up_user_id 
+       FROM 
+       	   suser
+    </select>
+    
+    <update id="suser_insert">
+       insert into suser
+       (
+	       user_id, 
+	       in_user_id, 
+	       pwd, 
+	       user_name, 
+	       birth, 
+	       mobile, 
+	       email, 
+	       in_date
+       ) 
+       values
+       (
+	       :1,
+	       :2,
+	       :3,
+	       :4,
+	       :5,
+	       :6,
+	       :7,
+	       to_char(sysdate,'yyyymmdd.hh24miss')
+       )
+    </update>
+
+    <update id="suser_update">
+       update suser set 
+	       pwd			 =:1, 
+	       user_name	 =:2, 
+	       birth		 =:3, 
+	       mobile		 =:4, 
+	       email		 =:5, 
+	       up_date		 = to_char(sysdate,'yyyymmdd.hh24miss'), 
+	       up_user_id	 =:6 
+       where 
+       	   user_id=:7
+    </update>
+
+    <update id="suser_delete">
+      delete suser where user_id =:1
+    </update>
+    
+    
+    
+
+    <select id="survey_select">
+       select 
+	       survey_id, 
+	       title, 
+	       content, 
+	       interview_cnt, 
+	       deadline, 
+	       in_date, 
+	       in_user_id, 
+	       up_date, 
+	       up_user_id 
+       FROM 
+           survey
+    </select>
+    
+    <update id="survey_insert">
+       insert into survey 
+       (
+	       survey_id, 
+	       title, 
+	       content, 
+	       interview_cnt, 
+	       deadline, 
+	       in_date, 
+	       in_user_id
+       ) 
+       values 
+       (
+	       :1,
+	       :2,
+	       :3,
+	       :4,
+	       :5,
+	       to_char(sysdate,'yyyymmdd.hh24miss'),
+	       :6
+       )
+    </update>
+
+    <update id="survey_update">
+       update survey set 
+	       title 			=:1, 
+	       content 			=:2, 
+	       interview_cnt	=:3, 
+	       deadline 		=:4, 
+	       up_date 			= to_char(sysdate,'yyyymmdd.hh24miss'), 
+	       up_user_id 		=:5
+       where 
+		   survey_id=:6
+    </update>
+
+    <update id="survey_delete">
+      delete survey where survey_id =:1
+    </update>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</mapper>

@@ -1,0 +1,142 @@
+{% extends 'layout.html' %}
+<meta charset="UTF-8">
+{% block content %}
+ 
+<link href="css/chatbot_00.css" rel="stylesheet">
+<link href="css/chatbot_01.css" rel="stylesheet">
+<script src="js/jquery-3.5.1.js"></script>
+<script>
+	var message = document.querySelector("#message");
+	var button = document.querySelector("#speech");
+	var korea = document.querySelector("#korea");
+	var english = document.querySelector("#english");
+	var isRecognizing = false;
+	
+	if ('SpeechRecognition' in window) {
+		// Speech recognition support. Talk to your apps!
+		console.log("음성인식을 지원하는 브라우저입니다.")
+	}
+	try {
+		var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition || window.mozSpeechRecognition || window.msSpeechRecognition)();
+	} catch(e){
+		console.error(e);
+	}
+	recognition.lang = 'ko-KR'; //선택하게 해줘야 할듯 .
+	recognition.interimResults = false;
+	recognition.maxAlternatives = 5;
+	//recognition.continuous = true;
+	
+	function speech_to_text(){
+		recognition.start();
+		isRecognizing = true;
+	
+		recognition.onstart = function(){
+			console.log("음성인식이 시작 되었습니다. 이제 마이크에 무슨 말이든 하세요.")
+		}
+		recognition.onresult = function(event) {
+			console.log('You said: ', event.results[0][0].transcript);
+			var resText = event.results[0][0].transcript;
+			my_answer.innerHTML = resText;
+	 		text_to_speech(resText);
+		};
+	
+		recognition.onend = function(){
+			isRecognizing = false;
+		}
+	}
+	
+	// Text to speech
+	function text_to_speech(txt){
+		if ('speechSynthesis' in window) {
+			console.log("음성합성을 지원하는  브라우저입니다.");
+	 	}
+		var msg = new SpeechSynthesisUtterance();
+		var voices = window.speechSynthesis.getVoices();
+		//msg.voice = voices[10]; // 두번째 부터 완전 외국인 발음이 됨. 사용하지 말것.
+		msg.voiceURI = 'native';
+		msg.volume = 1; // 0 to 1
+		msg.rate = 1.3; // 0.1 to 10
+		//msg.pitch = 2; //0 to 2
+		msg.text = txt;
+		msg.lang = 'ko-KR';
+	
+		msg.onend = function(e) {
+			if(isRecognizing == false){
+				recognition.start();   
+			}
+		console.log('Finished in ' + event.elapsedTime + ' seconds.');
+		};
+		window.speechSynthesis.speak(msg);
+	}
+	
+	$(document).ready(function(){ 
+		$("#chatbox").hide(); 
+	})
+	
+	function fn_show(){
+		$("#bot_info").hide(); 
+		$("#chatbox").show(); 
+		random_question();
+		speech_to_text();
+	}
+	 
+	function random_question(){
+		var question_arr = []
+		var ram_n = Math.floor(Math.random()*question_arr.length);
+		{% for i in questions %}
+			question_arr.push("{{i}}");
+		{% endfor %}
+		$("#bot_question").html(question_arr[ram_n]);
+		console.log(question_arr[ram_n]);
+	} 
+	
+	function fn_send(){
+		 var bot_question = $('#bot_question').val()
+		 var answer = $('#answer').val()
+		 
+		 var param = "";
+		 param += "dummy=" + Math.random();
+		 param += "&bot_question="+bot_question;
+		 param += "&answer="+answer;
+		
+		 $.ajax({
+				url : "bot_answer",
+				data : param,
+				dataType : "json",
+				type : "post",
+				async: false,
+				statusCode : {
+					404 : function() {
+						alert("네트워크가 불안정합니다. 다시 시도부탁드립니다.");
+					}
+				},
+				success : function(data) {
+					male = data.msg['male']
+					female = data.msg['female']
+					age = data.msg['age']
+				}
+			});
+		 alert("답변이 저장되었습니다.");
+		//location.reload();
+	}
+</script>
+ 
+	<h1 id="Bot_title">Chat Bot</h1>
+	<div id="chatbox" style="">
+		<div id="bot_question"></div><br />
+		<div id="my_answer"></div>
+		<input type="button" class="bot_button" value="답변전송하기" onclick="fn_send()"><br/>
+		<input type="button" class="bot_button" value="🥰다른 질문에 대답하고 싶어요🥰" onclick="random_question()"><br/>
+		<div id="bot_msg">여러분을 응원합니다. 오늘도 화이팅!</div>
+	</div>
+	
+	<div id="bot_info"> 안녕하세요. <br> 
+	당신의 백전취업을 함께 준비할 면접봇 홍합구이 입니다.<br> 
+	당신은 준비된 인재! 오늘도 화이팅 해보아요!<br> 
+	마이크 그림을 누르면 시작합니다.<br>
+	<img id="mike_img" src="image/mike.jpg" width='200px' border='0' onclick="javascript:fn_show()">
+	</div>
+	
+
+ 
+{% endblock %}

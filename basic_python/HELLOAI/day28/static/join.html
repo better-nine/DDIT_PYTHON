@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>join</title>
+<script src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	
+	var flag_dupl = true;
+
+	function fn_join(){
+		var user_id 	= $("#user_id").val();
+		var user_name 	= $("#user_name").val();
+		var birth 		= $("#birth").val();
+		var mobile 		= $("#mobile").val();
+		var email 		= $("#email").val(); 
+		
+		
+		
+		if (user_id=="") {
+			alert("아이디를 입력하세요!");
+			$("#user_id").focus();
+			return;
+		}
+		
+		if (user_name=="") {
+			alert("이름을 입력하세요.");
+			$("#user_name").focus();
+			return;
+		}
+		if (6<=user_name.length || user_name.length<=2) {
+			alert("이름의 길이를 확인해주세요.");
+			$("#user_name").focus();
+			return;
+		}
+		
+		if (birth=="") {
+			alert("생년월일을 입력하세요!");
+			$("#birth").focus();
+			return;
+		}
+		var dateRule = /^(19|20)\d{2}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[0-1])$/; 
+		if(!dateRule.test(birth)){
+			alert("생년월일 형식이 올바르지 않습니다.");
+			$("#birth").focus();
+			return;
+		}
+
+		
+		if (mobile=="") {
+			alert("휴대전화번호를 입력하세요!");
+			$("#mobile").focus();
+			return;
+		}
+		var moblieRule = /^\d{3}-\d{4}-\d{4}$/;
+		if(!moblieRule.test(mobile)) {
+			alert("전화번호 형식이 올바르지 않습니다.");
+			$("#mobile").focus();
+			return;
+		}
+		
+		
+		if (email=="") {
+			alert("이메일을 입력하세요!");
+			$("#email").focus();
+			return;
+		}
+		var emailRule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;//이메일 정규식
+		if(!emailRule.test(email)) {
+			alert("이메일 형식이 올바르지 않습니다.");
+			$("#email").focus();
+			return;
+		}
+		
+		if (flag_dupl){
+			alert("아이디 중복체크가 필요합니다.");
+			$("#user_id").focus();
+			return;
+		}
+		
+		
+		
+		mobile = mobile.replace(/-/gi,"");  
+		birth= birth.replace(/-/gi,"");
+		
+		var param = "";
+		param += "dummy=" + Math.random();
+		param += "&user_id="+user_id; 
+		param += "&user_name="+user_name; 
+		param += "&birth="+birth; 
+		param += "&email="+email; 
+		param += "&mobile="+mobile; 
+		
+		$.ajax({
+			url : "join_ajax",
+			data : param,
+			dataType : "json",
+			type : "post",
+			async: false,
+			success : function(data) {
+				if(data.msg == "ok"){
+					alert("이메일을 확인하시면 로그인 정보가 있습니다.");
+					location.href="main"
+				} else {
+					alert("실행 도중 문제가 생겼습니다.");
+				}
+			}
+		});
+		
+	}
+
+	function fn_dupl(){
+		var user_id = $("#user_id").val(); 
+		 
+		var param = "";
+		param += "dummy=" + Math.random();
+		param += "&user_id="+user_id; 
+		
+		$.ajax({
+			url : "dupl_ajax",
+			data : param,
+			dataType : "json",
+			type : "post",
+			async: false,
+			success : function(data) {
+				if(data.msg == "ok"){
+					alert("사용 가능한 아이디입니다.")
+					flag_dupl = false;
+				} else {
+					alert("이미 존재하는 아이디입니다.");
+				}
+			}
+		});
+		
+		
+		
+	}
+</script>
+</head>
+<body> 
+
+ <form action="">
+ 
+	<table border="1px" >
+		<tr>
+			<th>*아이디</th>
+			<th>
+				<input type="text" id="user_id" >
+				<a href="javascript:fn_dupl()">중복확인</a>
+			</th>
+		</tr>
+		<tr>
+			<th>*이름</th>
+			<th><input type="text" id="user_name" ></th>
+		</tr>
+		<tr>
+			<th>생년월일</th>
+			<th><input type="text" id="birth" ></th>
+		</tr>
+		<tr>
+			<th>전화번호</th>
+			<th><input type="text" id="mobile" ></th>
+		</tr>
+		<tr>
+		<tr>
+			<th>이메일</th>
+			<th><input type="text" id="email" ></th>
+		</tr>
+	 
+		<tr>
+			<th colspan="2">
+				<input type="button" value="가입하기" onclick="fn_join()" />
+			
+			</th>
+		</tr>	
+		
+	</table>
+
+ </form>
+</br>
+copyright 
+</body>
+</html>
+

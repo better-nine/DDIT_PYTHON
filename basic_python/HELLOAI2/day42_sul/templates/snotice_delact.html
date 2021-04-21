@@ -1,0 +1,21 @@
+
+{% extends 'layout.html' %}
+<meta charset="UTF-8">
+{% block content %}
+ 
+<meta charset="UTF-8">
+<script>
+	var cnt ='{{cnt}}';
+
+	if(cnt == '1'){
+		alert("정상적으로 삭제되었습니다.")
+		location.href="snotice_list";
+	} else {
+		alert("삭제 도중 오류가 생겼습니다.")
+		window.history.back();
+	}
+
+</script>
+ 
+	 
+{% endblock %}

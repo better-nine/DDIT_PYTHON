@@ -1,0 +1,94 @@
+{% extends 'layout.html' %}
+<meta charset="UTF-8">
+{% block content %}
+     
+<table class="tbl type_1 b_list">
+		<colgroup>
+        	<col style="width:64px">
+	        <col style="width:auto">
+	        <col style="width:155px">
+	        <col style="width:96px">
+	        <col style="width:96px">
+	        <col style="width:70px">
+    	</colgroup>
+    	
+    			<thead>
+		    		<tr>
+		    			<th scope="col">번호</th>
+		    			<th scope="col">내용</th>
+		    			<th scope="col">직종</th>
+		    			<th scope="col">익명아이디</th>
+		    			<th scope="col">등록일</th>
+		    		</tr>
+		    	</thead>
+		    	<tbody>
+		    					<tr>
+		    						<td>1</td>
+		    						<td>최근 인기 있는 직종이 어딜까요?
+		    						새롭고 다양한 직업이 정말 많은것같아요.
+		    						오늘 날씨가 정말 좋네요.
+		    						오늘도 좋은 하루되세요.
+		    					    </td>
+		    						<td>의료</td>
+			                        <td>익명_1270</td>
+			                        <td>2021.04.05</td>
+			                        <td><a href="void(0);" onclick="alert('삭제완료');return false;">삭제</a></td>
+		    					</tr>
+		    					<tr>
+		    						<td>2</td>
+		    						<td>요즘 일하는게 너무 행복해요.
+		    						점심과 저녁도 너무 맛있어요.
+		    						모두 편안하고 즐거운 하루 되세요.</td>
+		    						<td>IT</td>
+			                        <td>익명_7567</td>
+			                        <td>2021.04.04</td>
+			                        <td><a href="void(0);" onclick="alert('삭제완료');return false;">삭제</a></td>
+		    					</tr>
+		    					<tr>
+		    						<td>3</td>
+		    						<td>모두 코로나 조심하세요.
+		    						마스크를 꼭 착용합시다</td>
+		    						<td>상담</td>
+			                        <td>익명_4534</td>
+			                        <td>2021.04.03</td>
+			                        <td><a href="void(0);" onclick="alert('삭제완료');return false;">삭제</a></td>
+		    					</tr>
+		    					<tr>
+		    						<td>4</td>
+		    						<td>^^강아지가 정말 귀여워요.
+		    						멍멍~</td>
+		    						<td>의료</td>
+			                        <td>익명_4534</td>
+			                        <td>2021.04.03</td>
+			                        <td><a href="void(0);" onclick="alert('삭제완료');return false;">삭제</a></td>
+		    					</tr>
+		    					<tr>
+		    						<td>5</td>
+		    						<td>고양이도 정말 사랑스러워요.
+		    						맛있는 간식을 구입하려고 합니다.</td>
+		    						<td>의료</td>
+			                        <td>익명_4534</td>
+			                        <td>2021.04.03</td>
+			                        <td><a href="void(0);" onclick="alert('삭제완료');return false;">삭제</a></td>
+		    					</tr>
+		    					<tr>
+		    						<td>6</td>
+		    						<td>자격증을 취득하고 싶어요</td>
+		    						<td>교육</td>
+			                        <td>익명_4554</td>
+			                        <td>2021.04.03</td>
+			                        <td><a href="void(0);" onclick="alert('삭제완료');return false;">삭제</a></td>
+		    					</tr>
+		    					<tr>
+		    						<td>7</td>
+		    						<td>안녕하세요. 새로 가입했습니다. 반갑습니다.</td>
+		    						<td>의료</td>
+			                        <td>익명_4534</td>
+			                        <td>2021.04.03</td>
+			                        <td><a href="void(0);" onclick="alert('삭제완료');return false;">삭제</a></td>
+		    					</tr>
+		    	</tbody>
+	</table>
+
+ 
+{% endblock %} 

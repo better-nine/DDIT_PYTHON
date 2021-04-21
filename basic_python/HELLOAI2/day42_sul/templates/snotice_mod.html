@@ -1,0 +1,112 @@
+
+{% extends 'layout.html' %}
+<meta charset="UTF-8">
+{% block content %}
+
+<link rel="stylesheet" href="/js/jquery-ui.css"> 
+<link rel="stylesheet" href="/css/common.css"> 
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+
+	function fn_list(){
+		location.href="snotice_list"
+	}
+	
+	function fn_mod(){
+		alert($('input[name=attach_path]').val());
+		document.frm.submit();
+//		location.href="snotice_mod?b_seq={{notice.b_seq}}"
+	}
+	
+	function fn_del_ajax(){
+		var b_seq =  $('input[name=b_seq]').val();
+		 
+		var param = "";
+		param += "dummy=" + Math.random();
+		param += "&b_seq="+b_seq;
+		
+		$.ajax({
+			url : "snitoce_del_ajax",
+			data : param,
+			dataType : "json",
+			type : "post",
+			async: false,
+			statusCode : {
+				404 : function() {
+					alert("네트워크가 불안정합니다. 다시 시도부탁드립니다.");
+				}
+			},
+			success : function(data) {
+				if(data.msg == "ok"){
+					//location.href="snotice_mod?b_seq={{notice.b_seq}}"
+					location.reload();
+					//$('input[name=attach_path]').attr("value","");
+					//$('input[name=attach_name]').attr("value","");
+				} else {
+					alert("추가도중 문제가 생겼습니다.");
+				}
+			}
+		});
+		
+		
+	}
+</script>
+
+<style type="text/css">
+	.notice_detail {
+		width : 500px;	
+	}
+	
+	th {
+		width : 100px;
+	}
+	
+	a{
+		text-decoration: none;
+	}
+</style>
+ 
+<content>
+	<form name="frm" action = "snotice_modact" method = "POST" enctype = "multipart/form-data"> 
+	  <table border='1' class="notice_detail">
+	  <input type="hidden" name="b_seq" value="{{notice.b_seq}}">
+		<tr>
+		<th>글제목</th>
+		<td><input type="text" name="title" readonly="readonly" value="{{notice.title}}"></td>
+		</tr>
+		<tr>
+		<th>공개여부</th>
+		<td><input type="text" name="display_yn" readonly="readonly" value="{{notice.display_yn}}"></td>
+		</tr>
+		<tr>
+		<th>작성자</th>
+		<td><input type="text" name="name" readonly="readonly" value="{{notice.in_user_name}}"></td>
+		</tr>
+		<tr>
+		<th>내용</th>
+		<td><textarea rows="20" cols="50" name="content">{{notice.content}}</textarea> </td>
+		</tr>
+		<tr>
+		<th>파일</th>
+		<td>
+			{% if notice.attach_file != None %}
+			<span><img src="download?attach_path={{notice.attach_path}}&attach_file={{notice.attach_file}}" width="200px"></a></span><br/>
+			<span><input type="hidden" name="attach_path" value="{{notice.attach_path}}" readonly="readonly"></span> 
+			<span><input type="text" name="attach_file" value="{{notice.attach_file}}" readonly="readonly">
+			 <a href="javascript:fn_del_ajax()">X</a></span><br/>
+			<span> <input type="file" name="file"> </span>
+		    {% elif notice.attach_file == None %}
+			<span> <input type="file" name="file"> </span>
+			{% endif %}
+		</td>
+		</tr>
+ 
+	  </table>
+	  <input type="button" onclick="fn_mod()" value="수정완료">
+	  <input type="button" onclick="fn_list()" value="뒤로가기">
+	</form>
+</content>	
+
+
+{% endblock %}

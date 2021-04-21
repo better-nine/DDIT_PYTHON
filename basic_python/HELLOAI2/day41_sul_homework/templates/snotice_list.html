@@ -1,0 +1,35 @@
+
+{% extends 'layout.html' %}
+<meta charset="UTF-8">
+{% block content %}
+
+<script src="/js/jquery-ui.js"></script>
+<script src="/js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	 
+	function notice_add(){
+		window.location.href="snotice_add"
+	}
+ 
+</script>
+  <input type="button" value="글쓰기" onclick="notice_add()"><br />
+  <table  border="1px">
+		<tr>
+			<th>공지번호</th>
+			<th>글제목</th> 
+			<th>작성자</th>
+			<th>작성일자</th> 
+		</tr>
+	{% for s in list %}
+		<tr>
+			<td><a href="javascript:setData('{{s.b_seq}}','{{s.title}}','{{s.in_user_id}}','{{s.in_date}}')" >{{s.b_seq}}</a></td>
+			<td>{{s.title}}</td>
+			<td>{{s.in_user_id}}</td>
+			<td>{{s.in_date}}</td> 
+		</tr>
+	{% endfor %}
+  </table>
+ 
+
+
+{% endblock %}

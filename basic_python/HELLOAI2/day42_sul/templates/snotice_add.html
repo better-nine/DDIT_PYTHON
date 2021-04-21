@@ -1,0 +1,64 @@
+
+{% extends 'layout.html' %}
+<meta charset="UTF-8">
+{% block content %}
+
+<style type="text/css">
+ .notice_detail {
+	width : 500px;	
+}
+
+th {
+	width : 100px;
+}
+</style>
+<script type="text/javascript">
+
+	function fn_return(){
+		window.history.back();
+	}
+
+	function fn_add(){
+		document.frm.submit();
+	}
+
+
+</script>
+</head>
+<body>
+<content>
+	<form name="frm"  action = "snotice_addact" method = "POST" enctype = "multipart/form-data">
+	  <table border='1' class="notice_detail">
+		<tr>
+		<th>글제목</th>
+		<td><input type="text" name="title"></td>
+		</tr>
+		<tr>
+		<th>작성자</th>
+		<td><input type="text" name="name"></td>
+		</tr>
+		<tr>
+		<th>내용</th>
+		<td><textarea rows="20" cols="50" name="content"></textarea> </td>
+		</tr>
+		<tr>
+		<th>파일</th>
+		<td><input type = "file" name = "file" /> </td>
+		</tr>
+		<tr>
+		<th>공개여부</th>
+		<td>
+			<input type="radio" name="display_yn" value="y" /> 공개
+			<input type="radio" name="display_yn" value="n" checked="checked" /> 비공개
+
+		</td>
+		</tr>
+	  </table>
+	  <input type="button" value="작성완료" onclick="fn_add()">
+	  <input type="button" value="작성취소" onclick="fn_return()">
+	</form>
+</content>	
+	
+
+
+{% endblock %}

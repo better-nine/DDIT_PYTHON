@@ -1,0 +1,56 @@
+2021-04-02 12:43:41,526 - simple_example - DEBUG - 
+select user_id,
+       pwd,
+       user_name,
+       birth,
+       mobile,
+       email,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM suser
+where user_id =:1
+  and pwd =:2
+2021-04-02 12:43:53,718 - simple_example - DEBUG - 
+select survey_id,
+       st_mobile,
+       complete_yn,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM starget
+2021-04-02 12:43:57,919 - simple_example - DEBUG - 
+select survey_id,
+       s_seq,
+       question,
+       a1,
+       a2,
+       a3,
+       a4,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM sdetail
+2021-04-02 12:43:59,473 - simple_example - DEBUG - 
+select survey_id,
+       title,
+       content,
+       interview_cnt,
+       deadline,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM survey
+2021-04-02 12:44:01,150 - simple_example - DEBUG - 
+select survey_id,
+       st_mobile,
+       complete_yn,
+       in_date,
+       in_user_id,
+       up_date,
+       up_user_id
+FROM starget

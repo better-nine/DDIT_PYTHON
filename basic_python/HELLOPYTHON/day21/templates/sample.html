@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>샘플관리</title>
+
+<script src="js/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+
+function setData(col01,col02,col03){
+	$("#col01").val(col01);
+	$("#col02").val(col02);
+	$("#col03").val(col03);
+}
+
+function fn_add() {
+	var col01	= $("#col01").val();
+	var col02	= $("#col02").val();
+	var col03	= $("#col03").val();
+	
+	var param = "";
+	param += "dummy=" + Math.random();
+	param += "&col01="+col01;
+	param += "&col02="+col02;
+	param += "&col03="+col03;
+	
+	$.ajax({
+		url : "sample_ins.ajax",
+		data : param,
+		dataType : "json",
+		type : "post",
+		async: false,
+		statusCode : {
+			404 : function() {
+				alert("네트워크가 불안정합니다. 다시 시도부탁드립니다.");
+			}
+		},
+		success : function(data) {
+			if(data.msg == "ok"){
+				location.reload();
+			} else {
+				alert("추가도중 문제가 생겼습니다.");
+			}
+		}
+	});
+}	
+
+
+function fn_upd() {
+	var col01	= $("#col01").val();
+	var col02	= $("#col02").val();
+	var col03	= $("#col03").val();
+
+	var param = "";
+	param += "dummy=" + Math.random();
+	param += "&col01="+col01;
+	param += "&col02="+col02;
+	param += "&col03="+col03;
+	
+	$.ajax({
+		url : "sample_upd.ajax",
+		data : param,
+		dataType : "json",
+		type : "post",
+		async: false,
+		statusCode : {
+			404 : function() {
+				alert("네트워크가 불안정합니다. 다시 시도부탁드립니다.");
+			}
+		},
+		success : function(data) {
+			if(data.msg == "ok"){
+				location.reload();
+			} else {
+				alert("수정도중 문제가 생겼습니다.");
+			}
+		}
+	});
+}	
+
+function fn_del() {
+	var col01	= $("#col01").val();
+
+	var param = "";
+	param += "dummy=" + Math.random();
+	param += "&col01="+col01;
+
+	
+	$.ajax({
+		url : "sample_del.ajax",
+		data : param,
+		dataType : "json",
+		type : "post",
+		async: false,
+		statusCode : {
+			404 : function() {
+				alert("네트워크가 불안정합니다. 다시 시도부탁드립니다.");
+			}
+		},
+		success : function(data) {
+			if(data.msg == "ok"){
+				location.reload();
+			} else {
+				alert("삭제도중 문제가 생겼습니다.");
+			}
+		}
+	});
+}	
+
+
+
+</script>
+</head>
+<body>
+
+<table border="1px" >
+	<tr>
+		<td>
+
+<table border="1px" >
+	<tr>
+		<td>1행</td>
+		<td>2행</td>
+		<td>3행</td>
+	</tr>
+	
+{% for s in list %}
+	<tr>
+		<td><a href="javascript:setData('{{s.col01}}','{{s.col02}}','{{s.col03}}')" >{{s.col01}}</a></td>
+		<td>{{s.col02}}</td>
+		<td>{{s.col03}}</td>
+	</tr>
+{% endfor %}
+</table>
+		
+		</td>
+		<td>
+		
+<table border="1px" >
+	<tr>
+		<td>1행</td>
+		<td><input type="text" id="col01" ></td>
+	</tr>
+	<tr>
+		<td>2행</td>
+		<td><input type="text" id="col02" ></td>
+	</tr>
+	<tr>
+		<td>3행</td>
+		<td><input type="text" id="col03" ></td>
+	</tr>
+	<tr>
+		<td colspan="2">
+			<input type="button" value="추가" onclick="fn_add()" />
+			<input type="button" value="수정" onclick="fn_upd()" />
+			<input type="button" value="삭제" onclick="fn_del()" />
+		
+		</td>
+	</tr>	
+	
+</table>
+		
+		
+		</td>
+	</tr>
+</table>
+
+
+
+
+</body>
+</html>

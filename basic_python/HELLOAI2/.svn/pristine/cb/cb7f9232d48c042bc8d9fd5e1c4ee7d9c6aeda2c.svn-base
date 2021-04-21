@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.w3-sidebar a {
+	font-family: "Roboto", sans-serif
+}
+
+body, h1, h2, h3, h4, h5, h6, .w3-wide {
+	font-family: "Montserrat", sans-serif;
+}
+
+#logout {
+	font-size: 12px;
+}
+
+.noti_list {
+	text-align: center;
+	margin: auto;
+}
+
+#demo-form2{
+	text-align: center;
+}
+
+
+</style>
+<body class="w3-content" style="max-width: 1200px">
+
+	<!-- Sidebar/menu -->
+	<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top"
+		style="z-index: 3; width: 250px" id="mySidebar">
+		<div class="w3-container w3-display-container w3-padding-16">
+			<i onclick="w3_close()"
+				class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+			<h3 class="w3-wide">
+				<a href="#" class="w3-bar-item w3-button"><b>직딩</b></a>
+			</h3>
+		</div>
+		<div class="w3-padding-64 w3-large w3-text-grey"
+			style="font-weight: bold">
+			<a href="bot_view.html" class="w3-bar-item w3-button">잡봇</a> <a
+				onclick="myAccFunc()" href="javascript:void(0)"
+				class="w3-button w3-block w3-white w3-left-align" id="myBtn">
+				마이직딩 <i class="fa fa-caret-down"></i>
+			</a>
+			<div id="demoAcc"
+				class="w3-bar-block w3-hide w3-padding-large w3-medium">
+				<a href="diary_list.html"
+					class="w3-bar-item w3-button w3-light-grey"><i
+					class="fa fa-caret-right w3-margin-right"></i>일정</a> <a
+					href="memo_list.html" class="w3-bar-item w3-button">메모</a> <a
+					href="mypage.html" class="w3-bar-item w3-button">내가 쓴 글</a> <a
+					href="mypage.html" class="w3-bar-item w3-button">질문/건의</a> <a
+					href="mypage.html" class="w3-bar-item w3-button">개인정보수정</a>
+			</div>
+			<a href="board.html" class="w3-bar-item w3-button">잡게</a>
+		</div>
+
+	</nav>
+
+	<!-- Top menu on small screens -->
+	<header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
+		<div class="w3-bar-item w3-padding-24 w3-wide">직딩</div>
+		<a href="javascript:void(0)"
+			class="w3-bar-item w3-button w3-padding-24 w3-right"
+			onclick="w3_open()"><i class="fa fa-bars"></i></a>
+	</header>
+
+	<!-- Overlay effect when opening sidebar on small screens -->
+	<div class="w3-overlay w3-hide-large" onclick="w3_close()"
+		style="cursor: pointer" title="close side menu" id="myOverlay"></div>
+
+	<!-- !PAGE CONTENT! -->
+	<div class="w3-main" style="margin-left: 250px">
+
+		<!-- Push down content on small screens -->
+		<div class="w3-hide-large" style="margin-top: 83px"></div>
+
+		<!-- Top header -->
+		<header class="w3-container w3-xlarge">
+			<p class="w3-right" id="logout">로그아웃</p>
+			<p class="w3-center">문의/건의</p>
+		</header>
+
+		<!-- Image header -->
+		<div class="w3-display-container w3-container"></div>
+
+		<div class="w3-container w3-text-grey" id="jeans"></div>
+
+		<!-- Product grid -->
+		<div class="w3-row w3-grayscale">
+
+	<form id="demo-form2" data-parsley-validate="" class="form-horizontal form-label-left">
+		<div class="form-group">
+			<div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+				<textarea id="agree_memo" class="form-control" rows="10" cols="100" readonly>
+					개인정보 수집·이용 동의
+1:1문의 접수·처리를 위해서 아래와 같이 개인정보를 수집·이용합니다.
+
+1. 개인정보 수집 목적 : 문의처리 진행안내, 답변조회 시 문의 당사자 확인
+2. 개인정보 수집 항목 :  이메일
+3. 보유 및 이용기간 : 2년
+				</textarea>
+				<div class="checkbox" style="text-align: right;">
+					<label> <input type="checkbox"> <b>위 개인정보 수집·이용을 확인합니다.</b>
+					</label>
+				</div>
+			</div>
+		</div>
+
+		<br>
+
+		<div class="form-group">
+			<label class="control-label col-md-3 col-sm-3 col-xs-12"
+				for="customer_name"><span style="color: red;">*</span>&nbsp;이름
+			</label>
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<input type="text" id="customer_name" class="form-control">
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-md-3 col-sm-3 col-xs-12"
+				for="customer_phone"><span style="color: red;">*</span>&nbsp;휴대폰번호
+			</label>
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<input type="text" id="customer_phone"
+					class="form-control phoneclass" placeholder="숫자만 입력해주세요"> 
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label >이메일 </label>
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<div class="input-group date">
+					<input type="text" id="customer_email1" value=""
+						class="form-control"> <span class="input-group-btn"></span>
+		
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-md-3 col-sm-3 col-xs-12"><span style="color: red;">*</span>&nbsp;문의유형
+			</label>
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<select id="qna_kind" class="form-control">
+					<option value="게시판 문의">게시판 문의</option>
+					<option value="마이페이지 문의">마이페이지 문의</option>
+					<option value="잡봇 문의">잡봇 문의</option>
+					<option value="건의사항">건의사항</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="control-label col-md-3 col-sm-3 col-xs-12"
+				for="qna_memo"><span style="color: red;">*</span>&nbsp;문의내용
+			</label>
+			<div class="col-md-6 col-sm-6 col-xs-12">
+				<textarea id="qna_memo" class="form-control" rows="3"
+					placeholder="내용을 상세히 기입해주시면 신속한 처리에 도움이 됩니다."></textarea>
+			</div>
+		</div>
+
+
+		<hr>
+
+		<div class="form-group">
+			<div class="col-md-6 col-sm-6 col-xs-12  col-md-offset-3">
+				<button type="button" class="btn btn-primary btn-block" id="regbtn">문의하기</button>
+			</div>
+		</div>
+
+	</form>
+
+		</div>
+
+
+
+		<!-- End page content -->
+	</div>
+
+	<script>
+		// Accordion 
+		function myAccFunc() {
+			var x = document.getElementById("demoAcc");
+			if (x.className.indexOf("w3-show") == -1) {
+				x.className += " w3-show";
+			} else {
+				x.className = x.className.replace(" w3-show", "");
+			}
+		}
+
+		// Click on the "Jeans" link on page load to open the accordion for demo purposes
+		document.getElementById("myBtn").click();
+
+		// Open and close sidebar
+		function w3_open() {
+			document.getElementById("mySidebar").style.display = "block";
+			document.getElementById("myOverlay").style.display = "block";
+		}
+
+		function w3_close() {
+			document.getElementById("mySidebar").style.display = "none";
+			document.getElementById("myOverlay").style.display = "none";
+		}
+	</script>
+
+</body>
+</html>

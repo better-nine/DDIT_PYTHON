@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script>
+	var cnt ='{{cnt}}';
+	//히스토리빼기로 메모리 스택 쌓이지 않게 함
+	if(cnt == '0'){
+		alert("파일 형식 오류")
+		window.history.back();
+	} else {
+		window.opener.location.reload();
+		window.close();
+	}
+
+</script>
+
+
+<title> </title>
+</head>
+<body>
+	자료 {{cnt}}개 업로드가 끝났습니다. 창을 새로고침 해주세요.
+</body>
+</html>

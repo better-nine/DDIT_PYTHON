@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Test">
+      
+    <select id="select_login">
+       select 
+	       user_id, 
+	       pwd, 
+	       user_name, 
+	       birth, 
+	       mobile, 
+	       email, 
+	       in_date, 
+	       in_user_id, 
+	       up_date, 
+	       up_user_id 
+       FROM 
+       	   suser
+       where 
+       	   user_id	=:1 and 
+       	   pwd	  	=:2
+    </select>
+    
+      
+    <select id="suser_select">
+       select 
+	       user_id, 
+	       pwd, 
+	       user_name, 
+	       birth, 
+	       mobile, 
+	       email, 
+	       in_date, 
+	       in_user_id, 
+	       up_date, 
+	       up_user_id 
+       FROM 
+       	   suser
+    </select>
+    
+    <update id="suser_insert">
+       insert into suser
+       (
+	       user_id, 
+	       in_user_id, 
+	       pwd, 
+	       user_name, 
+	       birth, 
+	       mobile, 
+	       email, 
+	       in_date
+       ) 
+       values
+       (
+	       :1,
+	       :2,
+	       :3,
+	       :4,
+	       :5,
+	       :6,
+	       :7,
+	       to_char(sysdate,'yyyymmdd.hh24miss')
+       )
+    </update>
+
+    <update id="suser_update">
+       update suser set 
+	       pwd			 =:1, 
+	       user_name	 =:2, 
+	       birth		 =:3, 
+	       mobile		 =:4, 
+	       email		 =:5, 
+	       up_date		 = to_char(sysdate,'yyyymmdd.hh24miss'), 
+	       up_user_id	 =:6 
+       where 
+       	   user_id=:7
+    </update>
+
+    <update id="suser_delete">
+      delete suser where user_id =:1
+    </update>
+    
+    
+    
+
+    <select id="survey_select">
+       select 
+	       survey_id, 
+	       title, 
+	       content, 
+	       interview_cnt, 
+	       deadline, 
+	       in_date, 
+	       in_user_id, 
+	       up_date, 
+	       up_user_id 
+       FROM 
+           survey
+    </select>
+    
+    <update id="survey_insert">
+       insert into survey 
+       (
+	       survey_id, 
+	       title, 
+	       content, 
+	       interview_cnt, 
+	       deadline, 
+	       in_date, 
+	       in_user_id
+       ) 
+       values 
+       (
+	       :1,
+	       :2,
+	       :3,
+	       :4,
+	       :5,
+	       to_char(sysdate,'yyyymmdd.hh24miss'),
+	       :6
+       )
+    </update>
+
+    <update id="survey_update">
+       update survey set 
+	       title 			=:1, 
+	       content 			=:2, 
+	       interview_cnt	=:3, 
+	       deadline 		=:4, 
+	       up_date 			= to_char(sysdate,'yyyymmdd.hh24miss'), 
+	       up_user_id 		=:5
+       where 
+		   survey_id=:6
+    </update>
+
+    <update id="survey_delete">
+      delete survey where survey_id =:1
+    </update>
+    
+    
+    
+    
+     
+
+    <select id="detail_select">
+       select 
+	       survey_id, 
+	       s_seq, 
+	       question, 
+	       a1, 
+	       a2, 
+	       a3, 
+	       a4, 
+	       in_date, 
+	       in_user_id, 
+	       up_date, 
+	       up_user_id 
+       FROM 
+           sdetail
+    </select>
+    
+    <update id="detail_insert">
+       insert into sdetail 
+       (
+	       survey_id, 
+	       s_seq, 
+	       question, 
+	       a1, 
+	       a2, 
+	       a3, 
+	       a4, 
+	       in_date, 
+	       in_user_id, 
+	       up_date, 
+	       up_user_id 
+       ) 
+       values 
+       (
+	       :1,
+	       :2,
+	       :3,
+	       :4,
+	       :5,
+	       :6,
+	       :7,
+	       to_char(sysdate,'yyyymmdd.hh24miss'),
+	       :8,
+	       :9,
+	       :10
+       )
+    </update>
+
+    <update id="detail_update">
+       update sdetail set 
+	       question 		=:1, 
+	       a1 				=:2, 
+	       a2				=:3, 
+	       a3 				=:4, 
+	       a4 				=:5, 
+	       up_date 			= to_char(sysdate,'yyyymmdd.hh24miss'), 
+	       up_user_id 		=:6
+       where 
+		   survey_id		=:7
+		and
+		   s_seq 			=:8
+    </update>
+
+    <update id="detail_delete">
+      delete sdetail where survey_id =:1 and s_seq =:2
+    </update>
+    
+    
+    
+    
+    
+     
+
+    <select id="starget_select">
+       select 
+	       survey_id, 
+	       st_mobile, 
+	       complete_yn,
+	       in_date, 
+	       in_user_id, 
+	       up_date, 
+	       up_user_id 
+       FROM 
+           starget
+    </select>
+    
+    <update id="starget_insert">
+       insert into starget 
+       (
+	       survey_id, 
+	       st_mobile, 
+	       complete_yn,
+	       in_date, 
+	       in_user_id, 
+	       up_date, 
+	       up_user_id
+       ) 
+       values 
+       (
+	       :1,
+	       :2,
+	       :3,
+	       to_char(sysdate,'yyyymmdd.hh24miss'),
+	       :4,
+	       to_char(sysdate,'yyyymmdd.hh24miss'),
+	       :5	       
+       )
+    </update>
+
+    <update id="starget_update">
+       update starget set 
+	       complete_yn		=:1, 
+	       up_date 			= to_char(sysdate,'yyyymmdd.hh24miss'), 
+	       up_user_id 		=:2
+       where 
+		   survey_id		=:3
+		and
+		   st_mobile 	 	=:4
+    </update>
+
+    <update id="starget_delete">
+      delete starget where survey_id =:1 and st_mobile =:2
+    </update>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</mapper>
