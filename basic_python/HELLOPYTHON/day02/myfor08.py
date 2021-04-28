@@ -1,4 +1,4 @@
-from prompt_toolkit import input
+
 a = input("시작 수(큰 수 입력):")
 b = input("종료 수(작은 수 입력):")
 
