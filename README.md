@@ -1,7 +1,5 @@
 # DDIT_PYTHON
 
-파이썬 수업내용
-
 basic_python
 
 수업코드
